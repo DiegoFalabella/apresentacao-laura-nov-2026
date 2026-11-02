@@ -1,0 +1,287 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Magazine O TEMPO — Linha Editorial</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400;1,700&family=Rubik:wght@300..700&display=swap">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.2/lottie.min.js"></script>
+<style>
+:root{--red:#B31F32;--red-d:#8F1626;--pink:#F6CDD2;--cream:#FBF8F4;--sand:#F2EBE2;--ink:#1C1A1A;--ink-2:#2A2727;--green:#0B4F1F;--mint:#9FD3AE;--body:#4A4440;--mute:#8A827B;--line:#E6DFD6}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%;background:#0e0c0c;font-family:'Rubik',Arial,sans-serif;color:var(--ink);overflow:hidden;-webkit-font-smoothing:antialiased}
+#stage{position:absolute;left:50%;top:50%;width:1920px;height:1080px;transform-origin:center;transform:translate(-50%,-50%) scale(var(--s,1));overflow:hidden;background:var(--ink)}
+.slide{position:absolute;inset:0;padding:128px;display:none;background:var(--cream);overflow:hidden}
+.slide.active{display:flex}
+.slide::after{content:"";position:absolute;inset:0;pointer-events:none;opacity:.05;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E")}
+.slide>*{position:relative}
+/* entrance choreography */
+.active .st{opacity:0;transform:translateY(28px);animation:rise .7s cubic-bezier(.2,.7,.2,1) forwards}
+.active .st:nth-child(1){animation-delay:.05s}.active .st:nth-child(2){animation-delay:.15s}.active .st:nth-child(3){animation-delay:.25s}.active .st:nth-child(4){animation-delay:.35s}.active .st:nth-child(5){animation-delay:.45s}.active .st:nth-child(6){animation-delay:.55s}
+.active .st.d1{animation-delay:.15s}.active .st.d2{animation-delay:.28s}.active .st.d3{animation-delay:.41s}.active .st.d4{animation-delay:.54s}
+@keyframes rise{to{opacity:1;transform:none}}
+.active .lot{opacity:0;transform:scale(.96);animation:pop .9s cubic-bezier(.2,.7,.2,1) .25s forwards}
+@keyframes pop{to{opacity:1;transform:none}}
+.active .wipe{clip-path:inset(0 100% 0 0);animation:wipe .9s cubic-bezier(.7,0,.2,1) .2s forwards}
+@keyframes wipe{to{clip-path:inset(0 0 0 0)}}
+/* type */
+.eyebrow{font-size:24px;font-weight:500;letter-spacing:4px;text-transform:uppercase;color:var(--red);display:flex;align-items:center;gap:18px}
+.eyebrow::before{content:"";width:48px;height:3px;background:currentColor;border-radius:2px}
+h1,h2{font-family:'Libre Baskerville',Georgia,serif;font-weight:700;line-height:1.08;letter-spacing:-.5px}
+h1{font-size:118px;line-height:1.02;letter-spacing:-2px}
+h2{font-size:84px}
+h2 em,h1 em{font-style:italic;font-weight:400;color:var(--red)}
+.red h2 em,.red h1 em,.dark h2 em{color:var(--pink)}
+.green h2 em{color:var(--mint)}
+h3{font-size:32px;font-weight:600}
+p,li{font-size:30px;line-height:1.45;color:var(--body)}
+.lead{font-size:34px;max-width:1500px;font-weight:300}
+.card{background:#fff;border:1px solid var(--line);border-radius:20px;padding:40px;display:flex;flex-direction:column;gap:16px;box-shadow:0 20px 50px -30px rgba(28,26,26,.25)}
+.row{display:flex;gap:32px}
+.col{display:flex;flex-direction:column;gap:32px;flex:1}
+.lottie{width:640px;height:720px;border-radius:28px;overflow:hidden;flex:none;box-shadow:0 40px 80px -40px rgba(0,0,0,.6)}
+.lottie svg{display:block}
+ul,ol{padding-left:0;list-style:none;display:flex;flex-direction:column;gap:10px}
+ul li{padding-left:40px;position:relative}
+ul li::before{content:"";position:absolute;left:0;top:18px;width:16px;height:16px;border-radius:50%;background:var(--red)}
+.out ul li::before{background:var(--line);border:3px solid var(--mute);width:12px;height:12px;top:17px}
+ol{counter-reset:n}ol li{padding-left:64px;position:relative;counter-increment:n}
+ol li::before{content:counter(n,decimal-leading-zero);position:absolute;left:0;top:4px;font-family:'Libre Baskerville',serif;font-weight:700;font-size:26px;color:var(--pink)}
+.dark{background:var(--ink);color:var(--cream)}
+.dark p,.dark li{color:#C9BFB5}
+.dark .eyebrow{color:var(--pink)}
+.red{background:radial-gradient(1200px 900px at 20% 80%,#C9354A 0%,var(--red) 55%,var(--red-d) 100%);color:var(--cream)}
+.red .eyebrow{color:var(--pink)}
+.green{background:radial-gradient(1200px 900px at 80% 20%,#167A33 0%,var(--green) 55%,#073816 100%);color:var(--cream)}
+.green .eyebrow{color:var(--mint)}
+.sand{background:var(--sand)}
+.tile{background:var(--cream);color:var(--ink);border-radius:22px;padding:48px 44px 44px;flex:1;display:flex;flex-direction:column;gap:16px;position:relative;overflow:hidden;box-shadow:0 30px 60px -30px rgba(0,0,0,.45)}
+.tile .num{font-family:'Libre Baskerville',serif;font-size:140px;font-weight:700;line-height:.8;color:var(--sand);position:absolute;right:24px;top:18px}
+.tile .day{font-size:22px;font-weight:500;letter-spacing:3px;text-transform:uppercase;color:var(--red)}
+.tile h3{font-family:'Libre Baskerville',Georgia,serif;font-size:42px;font-weight:700;position:relative}
+.tile p{font-size:28px;position:relative}
+.tile .bar{height:6px;width:72px;background:var(--red);border-radius:3px;margin-top:8px}
+table{width:100%;border-collapse:separate;border-spacing:0;font-size:28px;border-radius:18px;overflow:hidden;box-shadow:0 20px 50px -30px rgba(28,26,26,.3)}
+th,td{text-align:left;padding:20px 28px;border-bottom:1px solid var(--line)}
+th{background:var(--ink);color:var(--cream);font-weight:500;letter-spacing:1px;text-transform:uppercase;font-size:22px}
+td{background:#fff}tr:nth-child(even) td{background:#FDFBF8}
+td:first-child{color:var(--red);font-weight:500;letter-spacing:1px;text-transform:uppercase;font-size:22px}td:nth-child(2){font-family:'Libre Baskerville',serif;font-weight:700}
+.tag{display:inline-block;padding:6px 16px;border-radius:999px;font-size:22px;font-weight:500;letter-spacing:1px}
+.tag.mg{background:var(--red);color:#fff}.tag.cj{background:var(--sand);color:var(--body)}.tag.cr{background:var(--ink);color:#fff}
+.watermark{position:absolute;font-family:'Libre Baskerville',serif;font-weight:700;font-size:900px;line-height:.7;color:rgba(0,0,0,.035);right:-60px;bottom:-200px;pointer-events:none;user-select:none}
+.red .watermark{color:rgba(255,255,255,.06)}
+.pill{background:var(--ink);color:var(--cream);padding:30px 36px;border-radius:18px;display:flex;flex-direction:column;gap:8px;border-left:8px solid var(--red)}
+/* photos */
+.bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
+.duo-red{position:absolute;inset:0;z-index:0;background:linear-gradient(100deg,#B31F32 0%,#B31F32 38%,rgba(179,31,50,.78) 70%,rgba(143,22,38,.9) 100%)}
+.duo-green{position:absolute;inset:0;z-index:0;background:linear-gradient(100deg,#0B4F1F 0%,#0B4F1F 40%,rgba(11,79,31,.82) 75%,rgba(7,56,22,.92) 100%)}
+.bg.mono{filter:grayscale(1) contrast(1.05)}
+.photo{position:absolute;right:0;top:0;width:860px;height:1080px;z-index:0;overflow:hidden}
+.photo img{width:100%;height:100%;object-fit:cover;display:block;transform:scale(1.06);animation:kb 18s ease-in-out infinite alternate}
+@keyframes kb{to{transform:scale(1) translateX(-10px)}}
+.photo::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,var(--fade) 0%,rgba(0,0,0,0) 32%)}
+.slide.has-photo .lottie{position:absolute;left:980px;bottom:120px;width:420px;height:472px;border:10px solid var(--fade);z-index:2}
+.slide.has-photo .col{max-width:820px;flex:none;z-index:1}
+.credit{position:absolute;right:36px;top:36px;z-index:3;font-size:18px;letter-spacing:1px;text-decoration:none;text-transform:uppercase;font-weight:500}
+.phone{position:absolute;left:990px;top:140px;width:420px;height:800px;z-index:2;background:#000;border-radius:44px;padding:14px;box-shadow:0 50px 100px -40px rgba(0,0,0,.8),0 0 0 2px rgba(251,248,244,.15)}
+.phone iframe{width:100%;height:100%;border:0;border-radius:32px;display:block;background:#000}
+.ytlink{position:absolute;left:990px;top:960px;width:420px;text-align:center;z-index:3;font-size:20px;font-weight:500;letter-spacing:1px;text-transform:uppercase;color:var(--pink);text-decoration:none;padding:10px 0;border:1px solid rgba(246,205,210,.5);border-radius:999px;background:rgba(28,26,26,.6)}
+.ytlink:hover{background:var(--red);border-color:var(--red);color:#fff}
+.portrait{position:absolute;right:160px;top:50%;transform:translateY(-50%);width:600px;height:600px;border-radius:300px;overflow:hidden;z-index:2;box-shadow:0 60px 120px -40px rgba(0,0,0,.7),0 0 0 14px rgba(251,248,244,.12)}
+.portrait img{width:100%;height:100%;object-fit:cover;object-position:50% 20%;display:block}
+.active .portrait.st{animation:rise .8s cubic-bezier(.2,.7,.2,1) .2s forwards;transform:translateY(calc(-50% + 28px))}
+@keyframes riseP{to{opacity:1;transform:translateY(-50%)}}
+.active .portrait.st{animation-name:riseP}
+/* chrome */
+#progress{position:fixed;left:0;bottom:0;height:5px;background:var(--red);width:0;transition:width .5s cubic-bezier(.2,.7,.2,1);z-index:9}
+#nav{position:fixed;right:24px;bottom:20px;color:#8A827B;font:500 13px/1 'Rubik',sans-serif;letter-spacing:2px;z-index:9;display:flex;gap:14px;align-items:center}
+#nav button{background:none;border:1px solid #3a3535;color:#C9BFB5;border-radius:999px;width:36px;height:36px;font-size:18px;cursor:pointer;transition:.2s}
+#nav button:hover{border-color:#C9BFB5;background:#1f1c1c}
+#hint{position:fixed;left:50%;bottom:28px;transform:translateX(-50%);color:#8A827B;font:400 13px/1 'Rubik',sans-serif;letter-spacing:2px;text-transform:uppercase;z-index:9;animation:hint 6s ease forwards}
+@keyframes hint{0%,70%{opacity:1}100%{opacity:0;visibility:hidden}}
+.logos{display:flex;align-items:center;gap:24px}
+.logo-m{width:112px;height:112px;border-radius:18px;box-shadow:0 20px 40px -20px rgba(0,0,0,.6)}
+.logo-ot{height:48px;width:auto}
+</style>
+</head>
+<body>
+<div id="stage">
+
+<!-- 1 CAPA -->
+<section class="slide red" style="flex-direction:column;justify-content:space-between">
+  <img class="bg mono" src="https://images.unsplash.com/photo-1771698027844-47a6ac8bc8bb?ixlib=rb-4.1.0&q=80&fm=jpg&crop=entropy&cs=tinysrgb&fit=max&w=2000" alt="Horizonte de Belo Horizonte ao pôr do sol">
+  <div class="duo-red"></div>
+  <div class="lot" id="lot-cover" style="position:absolute;right:0;top:0;width:820px;height:1080px;opacity:.9;mix-blend-mode:screen"></div>
+  <a class="credit" href="https://unsplash.com/@eversonvansoski?utm_source=magazine_otempo&utm_medium=referral" target="_blank" style="color:rgba(251,248,244,.75)">Foto: Everson Vansoski · Unsplash</a>
+  <div class="logos st"><img class="logo-m" src="assets/logo-magazine.png" alt="Magazine"><span style="font-size:26px;font-weight:500;letter-spacing:5px;text-transform:uppercase;color:var(--pink)">@otempomagazine</span></div>
+  <div style="max-width:1020px;display:flex;flex-direction:column;gap:36px">
+    <h1 class="st d1">A cultura de BH <em>contada</em> pelo Magazine.</h1>
+    <p class="st d2" style="font-size:36px;font-weight:300;color:var(--pink);max-width:820px">Linha editorial e conteúdos fixos para o Instagram da editoria Magazine.</p>
+  </div>
+  <div class="st d3" style="display:flex;align-items:center;gap:36px">
+    <img class="logo-ot" src="assets/otempo-white.png" alt="O TEMPO">
+    <span style="width:1px;height:40px;background:rgba(251,248,244,.35)"></span>
+    <p style="font-size:24px;letter-spacing:2px;text-transform:uppercase;color:var(--pink)">Novembro de 2026</p>
+  </div>
+</section>
+
+<!-- 2 LINHA EDITORIAL -->
+<section class="slide" style="flex-direction:column;gap:44px">
+  <div class="watermark">m.</div>
+  <p class="eyebrow st">Linha editorial</p>
+  <h2 class="st" style="max-width:1560px">Cultura em geral, com <em>Belo Horizonte</em> em primeiro lugar.</h2>
+  <p class="lead st">Entrevistas com artistas, novidades do mundo cultural, cinema, teatro e TV. Jornalismo cultural, sem fofoca.</p>
+  <div class="st" style="display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-top:12px">
+    <div class="card" style="padding:36px"><span class="tag mg" style="align-self:flex-start">01</span><h3>BH em cena</h3><p style="font-size:26px">Lugares, artistas e a cena cultural da cidade.</p></div>
+    <div class="card" style="padding:36px"><span class="tag mg" style="align-self:flex-start">02</span><h3>Telas</h3><p style="font-size:26px">Cinema, TV e streaming: estreias, crítica e novidades.</p></div>
+    <div class="card" style="padding:36px"><span class="tag mg" style="align-self:flex-start">03</span><h3>Palco e som</h3><p style="font-size:26px">Teatro, shows e música.</p></div>
+    <div class="card" style="padding:36px"><span class="tag mg" style="align-self:flex-start">04</span><h3>Conversas</h3><p style="font-size:26px">Entrevistas com artistas, feitas pela editoria.</p></div>
+  </div>
+</section>
+
+<!-- 3 ENTRA / FORA -->
+<section class="slide sand" style="flex-direction:column;gap:44px">
+  <p class="eyebrow st">Linha editorial</p>
+  <h2 class="st">O que <em>entra</em> e o que fica de fora</h2>
+  <div class="row st">
+    <div class="card" style="flex:1;padding:48px;border-top:10px solid var(--green)"><h3 style="font-size:40px;color:var(--green);font-family:'Libre Baskerville',serif">Entra</h3>
+      <ul><li>Entrevistas com artistas</li><li>Cinema: estreias e crítica</li><li>Teatro, shows e exposições em BH</li><li>TV e streaming: novidades e análise</li><li>Lugares e cultura de Belo Horizonte</li><li>Agenda cultural da cidade</li></ul></div>
+    <div class="card out" style="flex:1;padding:48px;border-top:10px solid var(--red)"><h3 style="font-size:40px;color:var(--red);font-family:'Libre Baskerville',serif">Fica de fora</h3>
+      <ul><li>Fofoca e vida pessoal de famosos</li><li>Polêmica de celebridade sem valor cultural</li><li>Trend sem relação com cultura ou com BH</li><li>Assuntos que já têm perfil próprio no O TEMPO</li></ul></div>
+  </div>
+</section>
+
+<!-- 4 TRÊS SÉRIES -->
+<section class="slide red" style="flex-direction:column;justify-content:center;gap:52px">
+  <div class="watermark" style="right:40px;bottom:-120px;font-size:720px">3</div>
+  <p class="eyebrow st">Conteúdos fixos</p>
+  <h2 class="st">Três séries <em>semanais</em></h2>
+  <div class="row">
+    <div class="tile st d1"><p class="day">Terça-feira</p><h3>O Tempo Te Leva</h3><p>Vídeo em lugares pouco conhecidos de BH, por temporadas.</p><span class="bar"></span></div>
+    <div class="tile st d2"><p class="day">Quarta-feira</p><h3>Filme da semana</h3><p>Um repórter indica uma estreia, em até 1 minuto.</p><span class="bar"></span></div>
+    <div class="tile st d3"><p class="day">Segunda-feira</p><h3>Agenda da semana</h3><p>Carrossel com a agenda cultural de BH para os próximos dias.</p><span class="bar"></span></div>
+  </div>
+</section>
+
+<!-- 5 TE LEVA -->
+<section class="slide has-photo" style="gap:72px;align-items:center;--fade:#FBF8F4">
+  <div class="photo"><img src="https://images.unsplash.com/photo-1775260014523-13c5104300f0?ixlib=rb-4.1.0&q=80&fm=jpg&crop=entropy&cs=tinysrgb&fit=max&w=1200" alt="Alameda arborizada em parque"></div>
+  <a class="credit" href="https://unsplash.com/@viniciusnevescosta?utm_source=magazine_otempo&utm_medium=referral" target="_blank" style="color:rgba(251,248,244,.75)">Foto: Vinícius Costa · Unsplash</a>
+  <div class="col">
+    <p class="eyebrow st">Série · Terça-feira</p>
+    <h2 class="st">O Tempo <em>Te Leva</em></h2>
+    <p class="st" style="font-size:32px;font-weight:300">Toda semana, um lugar de Belo Horizonte pouco conhecido do grande público. Organizado em temporadas temáticas.</p>
+    <div class="pill st"><p style="font-size:22px;font-weight:500;letter-spacing:3px;text-transform:uppercase;color:var(--pink)">Temporada 1</p><p style="font-family:'Libre Baskerville',serif;font-size:42px;font-weight:700;color:var(--cream);line-height:1.1">Parques pouco conhecidos</p></div>
+    <div class="st"><h3 style="font-size:26px;color:var(--green);margin-bottom:10px;letter-spacing:1px;text-transform:uppercase">Próximas temporadas (sugestões)</h3><p style="font-size:26px">Museus e casas de memória · Teatros e palcos independentes · Mirantes e vistas · Arte urbana e grafite · Bibliotecas, sebos e livrarias · Feiras e mercados de bairro · Igrejas e arquitetura histórica</p></div>
+  </div>
+  <div class="lottie lot" id="lot-park"></div>
+</section>
+
+<!-- 6 CINEMA -->
+<section class="slide dark has-photo" style="gap:72px;align-items:center;--fade:#1C1A1A">
+  <div class="photo"><img src="https://images.unsplash.com/photo-1774619755413-7c31ab3aabc3?ixlib=rb-4.1.0&q=80&fm=jpg&crop=entropy&cs=tinysrgb&fit=max&w=1200" alt="Sala de cinema com poltronas vermelhas e feixe do projetor"></div>
+  <a class="credit" href="https://unsplash.com/@getslower?utm_source=magazine_otempo&utm_medium=referral" target="_blank" style="color:rgba(251,248,244,.75)">Foto: Andrii Solok · Unsplash</a>
+  <div class="col">
+    <p class="eyebrow st">Série · Quarta-feira</p>
+    <h2 class="st">Filme da <em>semana</em></h2>
+    <p class="st" style="font-size:32px;font-weight:300">Um repórter do O TEMPO dá a dica de um filme que estreia na semana. Vídeo de até 1 minuto.</p>
+    <div class="st" style="background:var(--ink-2);padding:36px 40px;border-radius:20px;display:flex;flex-direction:column;gap:18px;border-left:8px solid var(--red)"><h3 style="font-size:24px;color:var(--pink);letter-spacing:2px;text-transform:uppercase">Estrutura sugerida</h3>
+      <ol style="font-size:27px"><li>Gancho: qual é o filme da semana</li><li>Do que trata, sem spoiler</li><li>Por que vale ver, na opinião do repórter</li><li>Onde está em cartaz em BH e “crítica completa no O TEMPO”</li></ol></div>
+  </div>
+  <div class="phone st d4">
+    <iframe src="https://www.youtube.com/embed/Bye5UokF0xI?rel=0&modestbranding=1&playsinline=1" title="Vídeo de exemplo — Filme da semana" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen referrerpolicy="origin"></iframe>
+  </div>
+  <a class="st d4 ytlink" href="https://www.youtube.com/shorts/Bye5UokF0xI" target="_blank" rel="noopener">Abrir o vídeo no YouTube</a>
+</section>
+
+<!-- 7 AGENDA -->
+<section class="slide has-photo" style="gap:72px;align-items:center;--fade:#FBF8F4">
+  <div class="photo"><img src="https://images.unsplash.com/photo-1748179471848-5c223cec7eaf?ixlib=rb-4.1.0&q=80&fm=jpg&crop=entropy&cs=tinysrgb&fit=max&w=1200" alt="Público em apresentação ao ar livre à noite"></div>
+  <a class="credit" href="https://unsplash.com/@piixvisuals?utm_source=magazine_otempo&utm_medium=referral" target="_blank" style="color:rgba(251,248,244,.75)">Foto: Nikolay Koshnicharov · Unsplash</a>
+  <div class="col">
+    <p class="eyebrow st">Série · Segunda-feira</p>
+    <h2 class="st">Agenda da <em>semana</em></h2>
+    <p class="st" style="font-size:32px;font-weight:300">Toda segunda, a agenda cultural de Belo Horizonte para a semana: shows, peças, exposições, cinema e eventos.</p>
+    <div class="card st" style="padding:36px 40px;border-left:8px solid var(--green)"><h3 style="font-size:24px;color:var(--green);letter-spacing:2px;text-transform:uppercase">Formato sugerido</h3>
+      <ul style="font-size:27px"><li>Carrossel com um card por dia ou por categoria</li><li>Cada item com local, dia, hora e preço</li><li>Link para a agenda completa no site do O TEMPO</li></ul></div>
+  </div>
+  <div class="lottie lot" id="lot-agenda"></div>
+</section>
+
+<!-- 8 EM CONJUNTO -->
+<section class="slide green" style="flex-direction:column;justify-content:center;gap:52px">
+  <img class="bg mono" src="https://images.unsplash.com/photo-1588701150211-476aab6dc311?ixlib=rb-4.1.0&q=80&fm=jpg&crop=entropy&cs=tinysrgb&fit=max&w=2000" alt="Lagoa da Pampulha vista de cima">
+  <div class="duo-green"></div>
+  <a class="credit" href="https://unsplash.com/@luizfelipebh?utm_source=magazine_otempo&utm_medium=referral" target="_blank" style="color:rgba(251,248,244,.75)">Foto: Luiz Felipe S. C. · Unsplash</a>
+  <p class="eyebrow st">Conteúdos que já existem</p>
+  <h2 class="st" style="font-size:76px;max-width:1500px">Três formatos produzidos <em>em conjunto</em> que entram na grade</h2>
+  <div class="row">
+    <div class="tile st d1"><h3 style="font-size:38px">O que vem aí nas novelas</h3><p style="font-size:27px">O que vai acontecer nas novelas. Entra no pilar Telas, como conteúdo de TV.</p><span class="bar" style="background:var(--green)"></span></div>
+    <div class="tile st d2"><h3 style="font-size:38px">Super Dicas</h3><p style="font-size:27px">Dicas culturais de graça em BH. Complementa a agenda da semana.</p><span class="bar" style="background:var(--green)"></span></div>
+    <div class="tile st d3"><h3 style="font-size:38px">Luiz, Câmera, Ação</h3><p style="font-size:27px">Um filme comentado de forma mais geral. Faz par com o Filme da semana.</p><span class="bar" style="background:var(--green)"></span></div>
+  </div>
+</section>
+
+<!-- 9 GRADE -->
+<section class="slide" style="flex-direction:column;justify-content:space-between">
+  <div style="display:flex;flex-direction:column;gap:36px">
+    <p class="eyebrow st">Grade semanal</p>
+    <h2 class="st" style="font-size:72px">A semana do <em>Magazine</em></h2>
+    <table class="st">
+      <tr><th style="width:24%">Dia</th><th style="width:46%">Conteúdo</th><th style="width:30%">Formato</th></tr>
+      <tr><td>Segunda-feira</td><td>Agenda da semana</td><td>Carrossel</td></tr>
+      <tr><td>Terça-feira</td><td>O Tempo Te Leva</td><td>Vídeo</td></tr>
+      <tr><td>Terça-feira</td><td>O que vem aí nas novelas</td><td>Vídeo</td></tr>
+      <tr><td>Quarta-feira</td><td>Filme da semana</td><td>Vídeo até 1 min</td></tr>
+      <tr><td>Quinta-feira</td><td>Super Dicas</td><td>Vídeo</td></tr>
+      <tr><td>Sexta-feira</td><td>Luiz, Câmera, Ação</td><td>Vídeo</td></tr>
+    </table>
+  </div>
+  <div class="st d4" style="display:flex;align-items:center;justify-content:space-between">
+    <p style="font-size:24px;color:var(--mute)">Dias sugeridos. Todos os conteúdos são da editoria Magazine; entre os fixos entram entrevistas, novidades culturais e stories.</p>
+    <div class="logos"><img src="assets/logo-magazine.png" alt="Magazine" style="width:56px;height:56px;border-radius:12px"><img src="assets/otempo-dark.png" alt="O TEMPO" style="height:36px;width:auto"></div>
+  </div>
+</section>
+
+<!-- 10 OBRIGADA -->
+<section class="slide red" style="flex-direction:column;justify-content:space-between">
+  <div class="lot" id="lot-cover2" style="position:absolute;right:0;top:0;width:820px;height:1080px;opacity:.55"></div>
+  <div class="portrait st d2"><img src="https://www.otempo.com.br/adobe/dynamicmedia/deliver/dm-aid--5fc2112a-5f87-4099-80f3-0527a0d8d652/lauramariaotjpeg.jpg?width=1000&quality=85" alt="Laura Maria"></div>
+  <div class="logos st"><img class="logo-m" src="assets/logo-magazine.png" alt="Magazine"><span style="font-size:26px;font-weight:500;letter-spacing:5px;text-transform:uppercase;color:var(--pink)">@otempomagazine</span></div>
+  <div style="max-width:1000px;display:flex;flex-direction:column;gap:36px">
+    <h1 class="st d1" style="font-size:160px">Obrigada<em>.</em></h1>
+    <p class="st d2" style="font-family:'Libre Baskerville',serif;font-size:48px;color:var(--cream);line-height:1.2">Laura Maria</p>
+    <p class="st d3" style="font-size:30px;font-weight:300;color:var(--pink)">Editoria Magazine · Jornal O TEMPO</p>
+  </div>
+  <div class="st d4" style="display:flex;align-items:center;gap:36px">
+    <img class="logo-ot" src="assets/otempo-white.png" alt="O TEMPO">
+    <span style="width:1px;height:40px;background:rgba(251,248,244,.35)"></span>
+    <p style="font-size:24px;letter-spacing:2px;text-transform:uppercase;color:var(--pink)">Novembro de 2026</p>
+  </div>
+</section>
+
+</div>
+<div id="progress"></div>
+<div id="hint">Use as setas para navegar · F para tela cheia</div>
+<div id="nav"><button id="prev" aria-label="Anterior">‹</button><span id="count"></span><button id="next" aria-label="Próximo">›</button></div>
+
+<script>
+const ANIMS={};const ANIM_SRC={cover:'assets/cover.json',park:'assets/park.json',cinema:'assets/cinema.json',agenda:'assets/agenda.json'};
+const slides=[...document.querySelectorAll('.slide')];let cur=-1;const players={};
+function fit(){const s=Math.min(innerWidth/1920,innerHeight/1080);document.documentElement.style.setProperty('--s',s)}
+addEventListener('resize',fit);fit();
+function mount(el){if(players[el.id])return;players[el.id]=true;const name=el.id.replace('lot-','').replace('cover2','cover');const go=d=>{players[el.id]=lottie.loadAnimation({container:el,renderer:'svg',loop:true,autoplay:true,animationData:d,rendererSettings:{preserveAspectRatio:'xMidYMid slice'}})};if(ANIMS[name])go(ANIMS[name]);else fetch(ANIM_SRC[name]).then(r=>r.json()).then(d=>{ANIMS[name]=d;go(JSON.parse(JSON.stringify(d)))}).catch(()=>{players[el.id]=false})}
+function show(n){n=Math.max(0,Math.min(slides.length-1,n));if(n===cur)return;
+  if(cur>=0){const old=slides[cur];old.classList.remove('active');old.querySelectorAll('.st,.lot').forEach(e=>{e.style.animation='none';e.offsetHeight;e.style.animation=''})}
+  cur=n;const s=slides[cur];s.classList.add('active');s.querySelectorAll('[id^=lot-]').forEach(mount);
+  document.getElementById('count').textContent=String(cur+1).padStart(2,'0')+' / '+String(slides.length).padStart(2,'0');
+  document.getElementById('progress').style.width=((cur+1)/slides.length*100)+'%';try{history.replaceState(null,'','#'+(cur+1))}catch(e){}}
+addEventListener('keydown',e=>{if(['ArrowRight','ArrowDown',' ','PageDown','Enter'].includes(e.key)){e.preventDefault();show(cur+1)}if(['ArrowLeft','ArrowUp','PageUp','Backspace'].includes(e.key)){e.preventDefault();show(cur-1)}if(e.key==='f'||e.key==='F'){document.documentElement.requestFullscreen&&document.documentElement.requestFullscreen()}});
+document.getElementById('next').onclick=()=>show(cur+1);document.getElementById('prev').onclick=()=>show(cur-1);
+document.getElementById('stage').addEventListener('click',e=>{if(e.clientX>innerWidth/2)show(cur+1);else show(cur-1)});
+let tx=0;addEventListener('touchstart',e=>tx=e.touches[0].clientX,{passive:true});addEventListener('touchend',e=>{const d=e.changedTouches[0].clientX-tx;if(d<-50)show(cur+1);if(d>50)show(cur-1)});
+show((parseInt(location.hash.slice(1))||1)-1);
+</script>
+</body>
+</html>
